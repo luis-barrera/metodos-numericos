@@ -21,7 +21,7 @@ A = array([[6, -3, 2], [-1, 4, 1], [1, 3, 6]])
 b = array([-4, 8, -15])
 guess = array([0, 0, 0])
 
-sol = jacobi(A,b,N=2,x=guess)
+sol = jacobi(A,b,N=3,x=guess)
 
 print("A:")
 pprint(A)

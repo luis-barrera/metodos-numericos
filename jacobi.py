@@ -1,5 +1,7 @@
 # TODO: verificar que sea una matriz diagonalmente dominante
 # TODO: en caso de que NO sea diagonalmente dominante hacer el intercambio de renglones
+# TODO: quitar el signo + de el ultimo renglón de cada iteración
+# TODO: permitir que se introduzca los parámetros y la matriz desde la terminal
 
 A = [[6, -3, 2], [-1, 4, 1], [1, 3, 6]]
 b = [-4, 8, -15]
@@ -39,5 +41,5 @@ for k in range(itmax):
 	for i in range(n):
 		x[i] = u[i]
 
-	print("x:", x)
+	print("x{k}:".format(k=k+1), x)
 	print("#"*30)
