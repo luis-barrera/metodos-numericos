@@ -7,7 +7,6 @@ A = [[6, -3, 2], [-1, 4, 1], [1, 3, 6]]
 b = [-4, 8, -15]
 x = [0, 0, 0]
 
-u = [0, 0, 0]
 n = len(A[0])
 itmax = 3	# número de iteraciones
 
@@ -34,7 +33,7 @@ for k in range(itmax):
 	for i in range(n):
 		suma = suma_renglones(i, n, A, x)
 		x[i] = round((b[i] - suma) / A[i][i], 4)
-		print("x[{index}] = (({b})-({sum})) / {a} = {u}".format(index=i, b=b[i], sum=suma, a=A[i][i], u=u[i]), sep="")
+		print("x[{index}] = (({b})-({sum})) / {a} = {x}".format(index=i, b=b[i], sum=suma, a=A[i][i], x=x[i]), sep="")
 		print()
 
 	print("x{k}:".format(k=k+1), x)
