@@ -21,7 +21,7 @@ def suma_renglones(i, n, A, x):
 		if (j != i and j < n-1):
 			print("+", end="")
 
-	print(" =", suma)
+	print(" =", round(suma, 4))
 	return suma
 
 
