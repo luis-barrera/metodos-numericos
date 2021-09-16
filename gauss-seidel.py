@@ -17,7 +17,7 @@ def suma_renglones(i, n, A, x):
 	for j in range(n):
 		if j != i:
 			suma += A[i][j] * x[j]
-			print("(", A[i][j], "*", x[j], ")", sep="", end="")
+			print("(", round(A[i][j], 4), "*", x[j], ")", sep="", end="")
 		if (j != i and j < n-1):
 			print("+", end="")
 
