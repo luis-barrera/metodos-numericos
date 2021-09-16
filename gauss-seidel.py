@@ -33,7 +33,7 @@ for k in range(itmax):
 	for i in range(n):
 		suma = suma_renglones(i, n, A, x)
 		x[i] = round((b[i] - suma) / A[i][i], 4)
-		print("x[{index}] = (({b})-({sum})) / {a} = {x}".format(index=i, b=b[i], sum=suma, a=A[i][i], x=x[i]), sep="")
+		print("x[{index}] = (({b})-({sum})) / {a} = {x}".format(index=i+1, b=b[i], sum=suma, a=A[i][i], x=x[i]), sep="")
 		print()
 
 	print("x{k}:".format(k=k+1), x)
