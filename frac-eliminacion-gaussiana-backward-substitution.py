@@ -1,5 +1,3 @@
-# TODO: Darle formato a la salida
-
 import numpy as np
 from fractions import Fraction as frac
 
@@ -14,11 +12,11 @@ def suma_renglon(i):
 
 	for j in range(i + 1, n):
 		suma += A[i][j] * x[j]
-		print("(", A[i][j], "*", x[j], ")", sep="", end="")
+		print("(", frac(A[i][j]), "*", frac(x[j]), ")", sep="", end="")
 		if (j < n - 1):
 			print("+", end="")
 
-	print(" =", suma)
+	print(" =", frac(suma))
 	return suma
 
 
@@ -26,13 +24,17 @@ def suma_renglon(i):
 # A = [[6, -3, 2, -4], [-1, 4, 1, 8], [1, 3, 6, -15]]
 # A = [[0, -3, 2, -4], [0, 4, 1, 8], [0, 3, 6, -15]]
 # A = [[1,1,1/2],[-3,-6,-5]]
-A = [[-1/3,1,35/18],[-61/6,-8/3,-17/3]]
+A = [['-1/3','1','35/18'],['-61/6','-8/3','-17/3']]
+
+for i in range(len(A)):
+	for j in range(len(A[0])):
+		A[i][j] = frac(A[i][j])
 
 # Tamaño de la matriz, renglones
 n = len(A)
 
-x = [0] * n
-m = [0] * n
+x = ['0'] * n
+m = ['0'] * n
 
 
 print("Matriz A:")
@@ -47,7 +49,7 @@ for i in range(n - 1):
 	for p in range(i, n):
 		# Vamos a recorrer todos los elementos de una columna, si no
 		# encontramos un número diferente a 0 terminamos el programa
-		if ( A[p][i] != 0 ):
+		if ( A[p][i] != frac(0) ):
 			diferente_a_cero = True	# Sí hay un número que es diferente a cero
 			break
 
@@ -69,16 +71,16 @@ for i in range(n - 1):
 		m[j] = A[j][i] / A[i][i]
 
 		print("\nEl valor de m[{j_aux}] = {Aji} / {Aii} = {mj}"
-			.format(j_aux = j, mj = m[j], Aji = A[j][i], Aii = A[i][i]))
+			.format(j_aux = j, mj = frac(m[j]), Aji = frac(A[j][i]), Aii = frac(A[i][i])))
 
 		for k in range(n + 1):
 			valor_anterior = A[j][k]
 			A[j][k] = valor_anterior - ( m[j] * A[i][k] )
 
 			print("\nEl valor de A[{j}][{k}] es : A[{j}][{k}] - (m[{j}] * A[{i}][{k}])"
-				.format(i = i, j = j, k = k, mj = m[j]))
+				.format(i = i, j = j, k = k, mj = frac(m[j])))
 			print("\nEl valor de A[{j}][{k}] es : {anterior} - ({mj} * {Aik}) = {Ajk}"
-				.format(i = i, j = j, k = k, anterior = valor_anterior, mj = m[j], Aik = A[i][k], Ajk = A[j][k]))
+				.format(i = i, j = j, k = k, anterior = frac(valor_anterior), mj = frac(m[j]), Aik = frac(A[i][k]), Ajk = frac(A[j][k])))
 
 print("")
 print("Matriz A después del intercambio de renglones:")
@@ -96,11 +98,10 @@ print("Inicia la sustitución hacia atrás")
 # Empieza la sistitución hacia atrás
 x[n-1] = A[n-1][n] / A[n-1][n-1]
 
-print("x[{a1}] = A[{a1}][{a2}] / A[{a1}][{a1}]"
+print("A[{a1}][{a2}] / A[{a1}][{a1}] = x[{a1}]"
 	.format(a1 = n, a2 = n+1))
-
 print("{b} / {an} = {xn}"
-	.format(xn = x[n - 1], b = A[n-1][n], an = A[n-1][n-1]))
+	.format(xn = frac(x[n - 1]), b = frac(A[n-1][n]), an = frac(A[n-1][n-1])))
 
 
 for i in range(n - 1, -1, -1):
@@ -113,7 +114,7 @@ for i in range(n - 1, -1, -1):
 		.format(a1 = i + 1, a2 = n+1, a3 = i + 2))
 
 	print("( {b} - {suma} ) / {Aii} = {xn}"
-		.format(xn = x[i], b = A[i][n], Aii = A[i][i], suma = suma))
+		.format(xn = frac(x[i]), b = frac(A[i][n]), Aii = frac(A[i][i]), suma = suma))
 
 
 print("\nSolución x:")

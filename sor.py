@@ -3,8 +3,8 @@
 # TODO: quitar el signo + de el ultimo renglón de cada iteración
 # TODO: permitir que se introduzca los parámetros y la matriz desde la terminal
 
-A = [[6, -3, 2], [-1, 4, 1], [1, 3, 6]]
-b = [-4, 8, -15]
+A = [[4,2,3], [3,-5,2], [-2,3,8]]
+b = [8, -14, 27]
 x = [0, 0, 0]
 
 n = len(A[0])
