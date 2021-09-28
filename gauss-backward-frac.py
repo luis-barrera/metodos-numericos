@@ -2,6 +2,13 @@ import numpy as np
 from fractions import Fraction as frac
 
 
+def imprimir_matriz(A):
+	B = np.copy(A)
+	for i in range(len(A)):
+		for j in range(len(A[0])):
+			B[i][j] = str(A[i][j])
+	print(np.matrix(B))
+
 def suma_renglon(i):
 	suma = 0
 
@@ -38,7 +45,7 @@ m = ['0'] * n
 
 
 print("Matriz A:")
-print(np.matrix(A))
+imprimir_matriz(A)
 print("")
 
 # Algoritmo de sustitución Gaussiana con sustitución hacia atrás
@@ -84,7 +91,7 @@ for i in range(n - 1):
 
 print("")
 print("Matriz A después del intercambio de renglones:")
-print(np.matrix(A))
+imprimir_matriz(A)
 
 
 if ( A[n-1][n-1] == 0 ):
@@ -118,4 +125,7 @@ for i in range(n - 1, -1, -1):
 
 
 print("\nSolución x:")
-print(x)
+B = np.copy(x)
+for j in range(len(x)):
+	B[j] = str(x[j])
+print(B)

@@ -39,4 +39,4 @@ for k in range(itmax):
 		print()
 
 	print("x{k}:".format(k=k+1), x)
-	print("#"*30)
+	print("\n" + "#"*30)

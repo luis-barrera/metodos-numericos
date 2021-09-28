@@ -3,13 +3,8 @@
 # TODO: quitar el signo + de el ultimo renglón de cada iteración
 # TODO: permitir que se introduzca los parámetros y la matriz desde la terminal
 
-A = [[6, -3, 2], [-1, 4, 1], [1, 3, 6]]
-b = [-4, 8, -15]
-x = [0, 0, 0]
-
-u = [0, 0, 0]
-n = len(A[0])
-itmax = 3
+import numpy as np
+from fractions import Fraction as frac
 
 
 def suma_renglones(i, n, A, x):
@@ -26,8 +21,29 @@ def suma_renglones(i, n, A, x):
 	return suma
 
 
+A = [['6', '-3', '2'], ['-1', '4', '1'], ['1', '3', '6']]
+b = ['-4', '8', '-15']
+x = ['0', '0', '0']
+
+n = len(A[0])
+itmax = 3
+
+u = ['0'] * n
+
+
+for i in range(len(A)):
+	for j in range(len(A[0])):
+		A[i][j] = frac(A[i][j])
+
+for i in range(len(x)):
+	b[i] = frac(b[i])
+
+for i in range(len(x)):
+	x[i] = frac(x[i])
+
+
 # Iteración de Jacobi
-#   itmax := número de iteraciones
+#   itmax es el número de iteraciones
 for k in range(itmax):
 
 	print("Iteracion", k+1)
@@ -41,5 +57,10 @@ for k in range(itmax):
 	for i in range(n):
 		x[i] = u[i]
 
-	print("x{k}:".format(k=k+1), x)
-	print("\n#" + "#"*29)
+	print("x{k}:".format(k=k+1), end='')
+	B = np.copy(x)
+	for j in range(len(x)):
+		B[j] = str(x[j])
+	print(B)
+
+	print("\n" + "#"*30)
